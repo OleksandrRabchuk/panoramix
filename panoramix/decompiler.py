@@ -135,6 +135,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
 
     problems = {}
     functions = {}
+    functionsName = []
 
     for (hash, fname, target, stack) in loader.func_list:
         """
@@ -148,6 +149,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
             # skip all the functions that are not it
             continue
 
+        functionsName.append(fname)
         logger.info("Parsing %s...", fname)
         logger.debug("stack %s", stack)
 
@@ -304,4 +306,5 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
     decompilation.text = text_output.getvalue()
     text_output.close()
 
-    return func_list
+    print(functionsName)
+    return functionsName
