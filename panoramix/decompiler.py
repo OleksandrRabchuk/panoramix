@@ -304,4 +304,4 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
     decompilation.text = text_output.getvalue()
     text_output.close()
 
-    return decompilation
+    return func_list

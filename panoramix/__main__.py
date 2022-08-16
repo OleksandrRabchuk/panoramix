@@ -80,7 +80,6 @@ def print_decompilation(this_addr):
     else:
         decompilation = decompile_bytecode(this_addr, function_name)
 
-    print(decompilation.text)
 
 
 def main():
