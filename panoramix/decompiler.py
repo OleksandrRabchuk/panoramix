@@ -150,6 +150,6 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
             continue
 
         functions_name.append(fname)
-
+    print()
     print(functions_name)
     return functions_name
