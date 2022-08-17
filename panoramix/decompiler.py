@@ -51,7 +51,7 @@ def decompile_address(address: str, only_func_name=None) -> Decompilation:
     return _decompile_with_loader(loader, only_func_name)
 
 
-def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
+def _decompile_with_loader(loader, only_func_name=None) -> list:
 
     """
 
@@ -149,7 +149,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
             # skip all the functions that are not it
             continue
 
-        functions_name.append(fname)
+        functions_name.append(fname+"test")
 
     print(functions_name)
     return functions_name
