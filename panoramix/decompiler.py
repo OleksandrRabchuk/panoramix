@@ -149,7 +149,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> list:
             # skip all the functions that are not it
             continue
 
-        functions_name.append(fname,"test")
+        functions_name.append(fname)
 
-    print(functions_name,"test")
-    return functions_name,"test"
+    print(functions_name)
+    return functions_name
