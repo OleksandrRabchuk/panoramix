@@ -1,20 +1,9 @@
 import dataclasses
-import io
-import json
+
 import logging
-import os
-import sys
-from contextlib import redirect_stdout
 
-import timeout_decorator
-
-import panoramix.folder as folder
-from panoramix.contract import Contract
-from panoramix.function import Function
 from panoramix.loader import Loader
-from panoramix.prettify import explain, pprint_repr, pprint_trace, pretty_type
 from panoramix.vm import VM
-from panoramix.whiles import make_whiles
 from panoramix.utils.helpers import C, rewrite_trace
 
 logger = logging.getLogger(__name__)
@@ -52,7 +41,6 @@ def decompile_address(address: str, only_func_name=None) -> Decompilation:
 
 
 def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
-
     """
 
         But the main decompilation process looks like this:
@@ -133,10 +121,8 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
 
     """
 
-    problems = {}
-    functions = {}
-    functions_name = []
 
+    functionsName = []
     for (hash, fname, target, stack) in loader.func_list:
         """
             hash contains function hash
@@ -149,7 +135,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
             # skip all the functions that are not it
             continue
 
-        functions_name.append(fname)
-    print()
-    print(functions_name)
-    return functions_name
+        functionsName.append(fname)
+
+    print(functionsName)
+    return functionsName
